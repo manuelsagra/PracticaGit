@@ -4,13 +4,13 @@
 
 * **¿Qué comando utilizaste en el paso 11? ¿Por qué?**
 
-Usé `git reset --hard HEAD~1` para ir al commit anterior, y con la opción `--hard` para perder los cambios en el working copy. Si no hubiese puesto esa opción, el fichero de markdown seguiría teniendo las últimas modificaciones y no el contenido inicial.
+Usé `git reset --hard HEAD~1` para ir al commit anterior, con la opción `--hard` para perder los cambios en el working copy. Si no hubiese puesto esa opción, el fichero de markdown seguiría teniendo las últimas modificaciones y no el contenido inicial.
 
-Teniendo en cuenta el estado del respositorio en ese momento, también se podría haber usado el comando `git reset --hard master` con idéntico resultado.
+Teniendo en cuenta el estado del repositorio en ese momento, también se podría haber usado el comando `git reset --hard master` con idéntico resultado.
 
 * **¿Qué comando o comandos utilizaste en el paso 12? ¿Por qué?**
 
-Primero ejecuté `git reflog` para ver el histórico de modificaciones. Ahí busqué el commit que se había hecho con las modificaciones en styled y por último usé `git reset --hard 0603be9` para volver al último commit y recuperar los cambios en el fichero en el working copy.
+Primero ejecuté `git reflog` para ver el histórico de modificaciones. Ahí busqué el commit que tenía las modificaciones en la rama styled y por último usé `git reset --hard 0603be9` para volver al último commit y recuperar los cambios en el fichero en el working copy.
 
 * **El merge del paso 13, ¿Causó algún conflicto? ¿Por qué?**
 
@@ -22,7 +22,7 @@ Las dos ramas apuntan a commits distintos con un padre común (el commit al que 
 
 * **El merge del paso 21, ¿Causó algún conflicto? ¿Por qué?**
 
-Este merge no causó ningún conflicto y se pudo hacer con fast-forward, ya que el commit al que apuntaba master estaba incluído en el grafo de la rama styled.
+Este merge no causó ningún conflicto y se pudo hacer con fast-forward, ya que el commit al que apuntaba master estaba incluido en el grafo de la rama styled.
 
 * **¿Qué comando o comandos utilizaste en el paso 25?**
 
@@ -37,7 +37,7 @@ Con `git log --graph --decorate --pretty=oneline` obtenemos un diagrama simplifi
 * badc75fe8ebf2ae3157dd27cfb3dab1c81b9dec6 Añadimos el Git Nuestro
 ```
 
-Como estamos en master no se ve la rama title, que tiene otro commit.
+Como estamos en master, no se ve la rama title, ya que tiene otro commit superior.
 
 * **El merge del paso 26, ¿Podría ser fast forward? ¿Por qué?**
 
@@ -85,35 +85,51 @@ git init
 
 2. **Crear un archivo git-nuestro.md con el contenido...**
 
-`vim git-nuestro.md`
+```
+vim git-nuestro.md
+```
 
 3. **Añadir git-nuestro.md al staging area**
 
-`git add git-nuestro.md`
+```
+git add git-nuestro.md
+```
 
 4. **Mover lo que hay en el staging area al repositorio**
 
-`git commit -m "Añadimos el Git Nuestro"`
+```
+git commit -m "Añadimos el Git Nuestro"
+```
 
 5. **Crear una rama llamada “styled”**
 
-`git branch styled`
+```
+git branch styled
+```
 
 6. **Listar las ramas que hay en el repositorio**
 
-`git branch`
+```
+git branch
+```
 
 7. **Moverse a la rama “styled”**
 
-`git checkout styled`
+```
+git checkout styled
+```
 
 8. **Comprobar que se está en la rama correcta**
 
-`git branch`
+```
+git branch
+```
 
 9. **Modificar en el archivo git-nuestro.md...**
 
-`vim git-nuestro.md`
+```
+vim git-nuestro.md
+```
 
 10. **Añadir los cambios al staging área y luego pasarlos al repositorio**
 
@@ -124,7 +140,9 @@ git commit -m "Modificamos el Git Nuestro en la rama styled"
 
 11. **Deshacer el último commit (perdiendo los cambios realizados en el working copy)**
 
-`git reset --hard HEAD~1`
+```
+git reset --hard HEAD~1
+```
 
 12. **Rehacer el último commit (el que acabamos de deshacer)**
 
@@ -135,23 +153,33 @@ git reset --hard 0603be9
 
 13. **Hacer un merge con ‘master’ (styled absorbe a master)**
 
-`git merge master`
+```
+git merge master
+```
 
 14. **Volver a la rama master**
 
-`git checkout master`
+```
+git checkout master
+```
 
 15. **Crear una nueva rama llamada “htmlify”**
 
-`git branch htmlify`
+```
+git branch htmlify
+```
 
 16. **Cambiar a la rama htmlify**
 
-`git checkout htmlify`
+```
+git checkout htmlify
+```
 
 17. **Modificar en el archivo git-nuestro.md...**
 
-`vim git-nuestro.md`
+```
+vim git-nuestro.md
+```
 
 18. **Hacer un commit**
 
@@ -198,28 +226,40 @@ git commit -m "Añadimos un título al fichero git-nuestro.md en la rama titled"
 ```
 
 24. **Volver a la rama master**
-cat 
-`git checkout master`
+ 
+```
+git checkout master
+```
 
 25. **Dibujar el diagrama**
 
-`git log --graph --decorate --pretty=oneline`
+```
+git log --graph --decorate --pretty=oneline
+```
 
 26. **Hacer un merge “no fast-forward” de “title” en “master” (master absorbe a title)**
 
-`git merge --no-ff title`
+```
+git merge --no-ff title
+```
 
 27. **Deshacer el merge (sin perder los cambios del working copy)**
 
-`git reset HEAD~1`
+```
+git reset HEAD~1
+```
 
 28. **Descartar los cambios**
 
-`git reset --hard styled`
+```
+git reset --hard styled
+```
 
 29. **Eliminar la rama “title”**
 
-`git branch -D title`
+```
+git branch -D title
+```
 
 30. **Rehacer el merge que hemos deshecho**
 
@@ -266,5 +306,6 @@ git tag title
 
 35. **Ir al tag htmlify**
 
-`git checkout htmlify`
-
+```
+git checkout htmlify
+```
